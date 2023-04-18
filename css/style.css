@@ -1,0 +1,70 @@
+html {
+  --scroll-behavior: smooth;
+  scroll-behavior: smooth;
+ 
+}
+
+body{
+  background-color: #171b1e;;
+  color : white;
+}
+
+.hidden{
+  display: none;
+}
+
+.navbar {
+  min-height: 100px;
+  background:#000;
+  opacity: 1;
+  z-index: 99;
+  box-shadow: 0 0 40px 0 rgba(255,255,255,.4);
+  position : fixed;
+}
+
+nav .navbar-nav li a{
+  letter-spacing: 0px;
+  margin-right : 50px;
+}
+
+.validPlace:hover{
+  cursor : pointer;
+}
+
+table,th,td{
+  border : 1px solid rgb(232,27,10);
+  text-align: center;
+}
+
+th {
+  color :  rgb(250,173,20)
+}
+
+#emplacements{
+  padding-left: 10%;
+  padding-right: 10%;
+
+}
+
+.food-card{
+ /* background-color: rgb(45,49,52);
+  border : 1px solid rgb(55,59,62);;
+  border-radius: 10px;*/
+  height: 250px;
+  margin : 20px;
+  /*box-shadow: inset 0 0 15px 0 rgba(255,255,255,.3);*/
+  border-radius: 32px;
+background: #171b1e;
+box-shadow:  14px 14px 28px #090b0c,
+             -14px -14px 28px #252b30;
+}
+
+/* 45 49 52 */
+
+
+    /*background: rgb(232,27,10);
+    background: -webkit-linear-gradient(#eee, #333);
+    color: linear-gradient(90deg, rgba(232,27,10,1) 0%,1) 100%);
+    background-image: linear-gradient(60deg, #E21143, #FFB03A);
+    background-clip: text;
+    color: transparent;*/

@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/style.css">
+<div class="container">
+    <h1 class="p-4">Emplacements</h1>
+    <div id="loaderPlaces">Chargement...</div>
+    <table id="tablePlaces" class="table hidden">
+      <thead>
+      <tr>
+        <th></th>
+        <th>Lieu</th>
+        <th>Ville</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <th>Lundi midi</th>
+        <td><input type="text" class="form form-control" id="nameP11"></td>
+        <td><input type="text" class="form form-control" id="cityP11"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P11">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Lundi soir</th>
+        <td><input type="text" class="form form-control" id="nameP12"></td>
+        <td><input type="text" class="form form-control" id="cityP12"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P12">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Mardi midi</th>
+        <td><input type="text" class="form form-control" id="nameP21"></td>
+        <td><input type="text" class="form form-control" id="cityP21"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P21">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Mardi soir</th>
+        <td><input type="text" class="form form-control" id="nameP22"></td>
+        <td><input type="text" class="form form-control" id="cityP22"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P22">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Mercredi midi</th>
+        <td><input type="text" class="form form-control" id="nameP31"></td>
+        <td><input type="text" class="form form-control" id="cityP31"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P31">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Mercredi soir</th>
+        <td><input type="text" class="form form-control" id="nameP32"></td>
+        <td><input type="text" class="form form-control"id="cityP32"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P32">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Jeudi midi</th>
+        <td><input type="text" class="form form-control"id="nameP41"></td>
+        <td><input type="text" class="form form-control" id="cityP41"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P41">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Jeudi soir</th>
+        <td><input  type="text" class="form form-control" id="nameP42"></td>
+        <td><input  type="text" class="form form-control" id="cityP42"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P42">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Vendredi midi</th>
+        <td><input  type="text" class="form form-control" id="nameP51"></td>
+        <td><input  type="text" class="form form-control" id="cityP51"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P51">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Vendredi soir</th>
+        <td><input  type="text" class="form form-control" id="nameP52"></td>
+        <td><input  type="text" class="form form-control" id="cityP52"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P52">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Samedi midi</th>
+        <td><input  type="text" class="form form-control" id="nameP61"></td>
+        <td><input  type="text" class="form form-control" id="cityP61"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P61">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Samedi soir</th>
+        <td><input  type="text" class="form form-control" id="nameP62"></td>
+        <td><input  type="text" class="form form-control" id="cityP62"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P62">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Dimanche midi</th>
+        <td><input  type="text" class="form form-control" id="nameP71"></td>
+        <td><input  type="text" class="form form-control" id="cityP71"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P71">Modifier</button></td>
+      </tr>
+      <tr>
+        <th>Dimanche soir</th>
+        <td><input  type="text" class="form form-control" id="nameP72"></td>
+        <td><input  type="text" class="form form-control" id="cityP72"></td>
+        <td><button class="validPlace btn btn-outline-success" id="P72">Modifier</button></td>
+      </tr>
+    </tbody>
+    </table>
+  </div>
+</div>
+</body>
+
+  <script  src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <script  src="./js/script.js"></script>
+  
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+    import { getDatabase, ref, get, set,child,update, remove } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-database.js";
+
+    const firebase = initializeApp(firebaseConfig);
+    const db = getDatabase();
+    
+    $( document ).ready(function() {
+      getAllPlacesAdmin(ref,db,get,child);
+    });
+    
+    $('.validPlace').click((evt) => {
+      updatePlaceById(ref, db, update, evt.target.id);
+    });
+
+  </script>
+</html>
